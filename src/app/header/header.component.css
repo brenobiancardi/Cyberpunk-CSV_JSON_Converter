@@ -1,0 +1,20 @@
+.icon {
+  background-color: var(--background-secondary);
+  color: var(--text-light);
+  text-decoration: none;
+
+  vertical-align: middle;
+  padding: 5px;
+
+  display: flex;
+  align-items: center;
+}
+.icon:hover {
+  background-color: var(--background-secondary);
+  filter: invert(10%);
+}
+
+mat-toolbar {
+  display: flex;
+  background-color: var(--background-secondary);
+}
