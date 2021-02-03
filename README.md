@@ -1,27 +1,19 @@
-# CyberpunkCsvJson
+# Cyberpunk CSV-JSON :memo:
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.2.0.
+Esta é uma aplicacão simples desenvolvida no bootcamp AVANADE ANGULAR DEVELOPER realizada junto a Plataforma de educação Digital Inovation One.
 
-## Development server
+Fui desafiado por [Camila Ribeiro](https://www.linkedin.com/in/camila-ferreira-ribeiro/), em um dos modulos do bootcamp, a construir uma aplicação SPA utilizando o ANGULAR.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Desafio
 
-## Code scaffolding
+1.  Crie uma aplicação Angular (Não esqueça que todo código precisa estar no GitHub)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+2.  Crie no mínimo 3 componentes que deverão estar interagindo na mesma página (Não esqueça das rotas)
 
-## Build
+3.  Escolha no mínimo 4 componentes do Angular Material e incorpore eles em sua aplicação.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+4.  Crie em uma das páginas uma interação através da Interpolação e/ou utilizando Property Biding.
 
-## Running unit tests
+5.  Crie uma explicação sobre o que foi feito, esta explicação será inserida na plataforma junto com o link para o código no GitHub.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+6.  Você poderá criar um vídeo demonstrativo da aplicação construída, e publicá-lo no YouTube, passando o link de acesso na plataforma. Este passo 6, não é obrigatório, mas entrará como um diferencial.

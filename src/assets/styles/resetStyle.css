@@ -1,0 +1,31 @@
+:root {
+  --root-background: #ffeb3b;
+  --root-primary: #136377;
+  --root-accent: #800080;
+  --root-warning: #ff003c;
+  --root-background-secondary: #413e3e;
+  --root-third-color: #136377;
+  --root-text-dark: #000000;
+  --root-text-light: #ffffff;
+  --root-glitch-color: #0df2f2;
+  --root-font-size: 32px;
+}
+
+html,
+body {
+  height: 100vh;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Tomorrow, "Helvetica Neue", sans-serif !important;
+  background-color: var(--root-background);
+}
+
+a {
+  text-decoration: none;
+}

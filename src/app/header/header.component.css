@@ -1,6 +1,6 @@
 .icon {
-  background-color: var(--background-secondary);
-  color: var(--text-light);
+  background-color: var(--root-background-secondary);
+  color: var(--root-text-light);
   text-decoration: none;
 
   vertical-align: middle;
@@ -10,11 +10,11 @@
   align-items: center;
 }
 .icon:hover {
-  background-color: var(--background-secondary);
+  background-color: var(--root-background-secondary);
   filter: invert(10%);
 }
 
 mat-toolbar {
   display: flex;
-  background-color: var(--background-secondary);
+  background-color: var(--root-background-secondary);
 }
