@@ -122,7 +122,7 @@
   transition: background 0.2s;
 }
 .cybr-btn:disabled {
-  animation: glitch 1s infinite;
+  animation: glitch 7s infinite;
 }
 .cybr-btn:hover {
   --primary: hsl(

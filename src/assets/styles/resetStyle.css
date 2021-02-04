@@ -3,6 +3,7 @@
   --root-primary: #136377;
   --root-accent: #800080;
   --root-warning: #ff003c;
+  --root-success: #28a745;
   --root-background-secondary: #413e3e;
   --root-third-color: #136377;
   --root-text-dark: #000000;
@@ -28,4 +29,14 @@ body {
 
 a {
   text-decoration: none;
+}
+
+.msg-success {
+  background-color: var(--root-success);
+  color: #fff;
+}
+
+.msg-error {
+  background-color: var(--root-warning);
+  color: #fff;
 }
