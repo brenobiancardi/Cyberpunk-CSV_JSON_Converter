@@ -7,6 +7,8 @@ import { EMPTY } from 'rxjs';
 })
 export class HomeService {
   constructor(private snackBar: MatSnackBar) {}
+  columns: string[];
+  data: any[];
 
   showMessage(msg: string, isError: boolean = false): void {
     this.snackBar.open(msg, 'X', {
@@ -49,18 +51,20 @@ export class HomeService {
     try {
       JsonParsed = JSON.parse(jsonString);
     } catch {
-      JsonParsed = String(`[${jsonString}]`);
+      if(jsonString.trim().search('{') === 1){
+        jsonString = String(`[${jsonString}]`);
+      }
     }
     try {
-      JsonParsed = JSON.parse(JsonParsed);
+      JsonParsed = JSON.parse(jsonString);
     } catch {
       this.errorHandler('JSON não é valido');
       return 'Erro ao converter estrutura de dados';
-    } finally {
+    }
       let saida = this.convertToCSV(JsonParsed);
       this.errorHandler('Conversão realizada', false);
       return saida;
-    }
+    
   }
 
   toJson(CSVString: string): string {
@@ -73,6 +77,7 @@ export class HomeService {
 
       let lines = CSVString.split('\n');
       let props = lines.shift().split(',');
+      this.columns = props.map((value) => value.split('"').join(''));
       let i = 0;
       if (lines.length === 0) {
         this.errorHandler(
@@ -96,6 +101,7 @@ export class HomeService {
           console.log(`Linha ${i} removida.`);
         }
       }
+      this.data = arrayJsonObjects;
       const JSONsaida = JSON.stringify(arrayJsonObjects, null, 2);
 
       try {
@@ -106,5 +112,17 @@ export class HomeService {
         return 'Erro ao converter estrutura de dados';
       }
     }
+  }
+
+  recoverData(): any[]{
+    let dataRecovery = this.data;
+    this.data = [];
+    return dataRecovery;
+  }
+
+  recoverProps(): string[]{
+    let columnsRecovery = this.columns;
+    this.columns = [];
+    return columnsRecovery;
   }
 }

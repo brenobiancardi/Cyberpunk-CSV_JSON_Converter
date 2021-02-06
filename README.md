@@ -12,7 +12,10 @@ Fui desafiado por [Camila Ribeiro](https://www.linkedin.com/in/camila-ferreira-r
 
 3.  Escolha no mínimo 4 componentes do Angular Material e incorpore eles em sua aplicação.
 
-    > 1/4 MatSnackBar
+    1. MatToolbarModule
+    2. MatSnackBar
+    3. MatIconModule
+    4. 
 
 4.  Crie em uma das páginas uma interação através da Interpolação e/ou utilizando Property Biding.
 

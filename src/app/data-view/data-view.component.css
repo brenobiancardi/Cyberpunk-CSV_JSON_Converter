@@ -1,0 +1,35 @@
+mat-form-field, mat-paginator{
+  background-color: var(--root-third-color);
+}
+
+table {
+  background-color: var(--root-third-color);
+  width: 100%;
+}
+
+tbody {
+  width: 100%;
+}
+
+.mat-body,.mat-table, .mat-body-1, .mat-typography{
+  font-family: Tomorrow, "Helvetica Neue", sans-serif;
+}
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+.md-table-pagination{
+  color: var(--root-text-light);
+}
+
+th{
+  font-size: 18px;
+  font-weight: 700;
+}
+
+td, th {
+  width: auto;
+  max-width: 200px;
+  color: var(--root-text-light);
+}

@@ -1,14 +1,8 @@
 .home-body {
-  height: 70%;
-  max-width: 90%;
   margin-top: 10%;
   margin-left: auto;
   margin-right: auto;
-  background-image: url("../../assets/samurai-logo.png");
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: 50% 40%;
-  background-size: 200px;
+
 }
 
 .input-output {
@@ -27,7 +21,6 @@ textarea {
   height: 100%;
   resize: none;
   overflow: auto;
-  overflow-x: hidden;
   min-height: 300px;
   min-width: 600px;
   clip-path: polygon(95% 0, 100% 10%, 100% 100%, 5% 100%, 0% 90%, 0 0);
@@ -41,4 +34,11 @@ textarea::placeholder {
 .button-bar {
   display: flex;
   justify-content: space-around;
+}
+
+.table {
+  margin-top: 20px;
+  max-width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
 }

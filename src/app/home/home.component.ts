@@ -7,12 +7,17 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
 })
-export class HomeComponent {
+export class HomeComponent{
+  constructor(private homeService: HomeService) {}
+
   converterForm = new FormGroup({
     input: new FormControl('', Validators.required),
     output: new FormControl(''),
   });
-  constructor(private homeService: HomeService) {}
+
+  data: any[];
+  columns: string[];
+
   get input() {
     return this.converterForm.get('input');
   }
@@ -23,11 +28,15 @@ export class HomeComponent {
 
   converterCSVJSON(): void {
     const saida = this.homeService.toJson(this.input.value);
+    this.data = this.homeService.recoverData();
+    this.columns = this.homeService.recoverProps();
     this.output.setValue(saida);
   }
 
   converterJSONCSV(): void {
     const saida = this.homeService.toCSV(this.input.value);
+    this.data = this.homeService.recoverData();
+    this.columns = this.homeService.recoverProps();
     this.output.setValue(saida);
   }
 }

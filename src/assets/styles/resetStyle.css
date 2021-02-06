@@ -25,6 +25,11 @@ body {
   margin: 0;
   font-family: Tomorrow, "Helvetica Neue", sans-serif !important;
   background-color: var(--root-background);
+  background-image: url("../../assets/samurai-logo.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: 50% 40%;
+  background-size: 200px;
 }
 
 a {
