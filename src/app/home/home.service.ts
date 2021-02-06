@@ -60,7 +60,8 @@ export class HomeService {
 
   toJson(CSVString: string): string {
     try {
-      JSON.parse(CSVString);
+      this.data = JSON.parse(CSVString);
+      this.columns = Object.keys(this.data[0]);
       this.messagesService.errorHandler('Já é um JSON valido', false);
       return CSVString;
     } catch {
