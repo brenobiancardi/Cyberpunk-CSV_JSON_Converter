@@ -1,32 +1,23 @@
+import { MessagesService } from './../shared/messages.service';
 import { Injectable } from '@angular/core';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { EMPTY } from 'rxjs';
 
+import { DataViewService } from './../data-view/data-view.service';
 @Injectable({
   providedIn: 'root',
 })
 export class HomeService {
-  constructor(private snackBar: MatSnackBar) {}
-  columns: string[];
-  data: any[];
+  constructor(private messagesService: MessagesService,private dataViewService:DataViewService) {}
 
-  showMessage(msg: string, isError: boolean = false): void {
-    this.snackBar.open(msg, 'X', {
-      duration: 10000,
-      horizontalPosition: 'right',
-      verticalPosition: 'top',
-      panelClass: isError ? ['msg-error'] : ['msg-success'],
-    });
-  }
+  columns: string[] = [];
+  data: any[] = [];
 
-  errorHandler(msg: string, isError: boolean = true): typeof EMPTY {
-    this.showMessage(msg, isError);
-
-    return EMPTY;
-  }
-
-  arrayToString(object: Object): string {
+  arrayToString(object: Object,title: boolean = false): string {
     const line = Object.values(object);
+    if(title){
+      this.columns.push(...line)
+    }else{
+      this.data.push(object)
+    }
     return '"' + line.join('","') + '"';
   }
 
@@ -34,7 +25,7 @@ export class HomeService {
     let output: string = '';
     if (json.length) {
       let i = 0;
-      output = this.arrayToString(Object.keys(json[i])) + '\n';
+      output = this.arrayToString(Object.keys(json[i]),true) + '\n';
       while (i < json.length) {
         output += this.arrayToString(json[i]) + '\n';
         i++;
@@ -58,11 +49,11 @@ export class HomeService {
     try {
       JsonParsed = JSON.parse(jsonString);
     } catch {
-      this.errorHandler('JSON não é valido');
+      this.messagesService.errorHandler('JSON não é valido');
       return 'Erro ao converter estrutura de dados';
     }
       let saida = this.convertToCSV(JsonParsed);
-      this.errorHandler('Conversão realizada', false);
+      this.messagesService.errorHandler('Conversão realizada', false);
       return saida;
     
   }
@@ -70,7 +61,7 @@ export class HomeService {
   toJson(CSVString: string): string {
     try {
       JSON.parse(CSVString);
-      this.errorHandler('Já é um JSON valido', false);
+      this.messagesService.errorHandler('Já é um JSON valido', false);
       return CSVString;
     } catch {
       let arrayJsonObjects = [];
@@ -80,7 +71,7 @@ export class HomeService {
       this.columns = props.map((value) => value.split('"').join(''));
       let i = 0;
       if (lines.length === 0) {
-        this.errorHandler(
+        this.messagesService.errorHandler(
           'CSV deve ser composto de um header e pelo menos uma linha de dados',
           true
         );
@@ -108,21 +99,21 @@ export class HomeService {
         JSON.parse(JSONsaida);
         return JSONsaida;
       } catch {
-        this.errorHandler('Não conseguimos converter seu CSV :(');
+        this.messagesService.errorHandler('Não conseguimos converter seu CSV :(');
         return 'Erro ao converter estrutura de dados';
       }
     }
   }
 
-  recoverData(): any[]{
+  recoverData(): void{
     let dataRecovery = this.data;
     this.data = [];
-    return dataRecovery;
+    this.dataViewService.alterData(dataRecovery);
   }
 
-  recoverProps(): string[]{
+  recoverProps(): void{
     let columnsRecovery = this.columns;
     this.columns = [];
-    return columnsRecovery;
+    this.dataViewService.alterColumns(columnsRecovery);
   }
 }

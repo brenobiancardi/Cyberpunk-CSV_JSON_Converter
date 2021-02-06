@@ -1,20 +1,22 @@
 .icon {
-  background-color: var(--root-background-secondary);
-  color: var(--root-text-light);
-  text-decoration: none;
+    background-color: var(--root-background-secondary);
+    color: var(--root-text-light);
+    text-decoration: none;
 
-  vertical-align: middle;
-  padding: 5px;
+    vertical-align: middle;
+    padding: 5px;
 
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
 }
 .icon:hover {
-  background-color: var(--root-background-secondary);
-  filter: invert(10%);
+    background-color: var(--root-background-secondary);
+    filter: invert(10%);
 }
 
 mat-toolbar {
-  display: flex;
-  background-color: var(--root-background-secondary);
+    display: flex;
+    width: 100%;
+    min-width: 600px;
+    background-color: var(--root-background-secondary);
 }
