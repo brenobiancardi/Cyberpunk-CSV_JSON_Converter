@@ -14,12 +14,14 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DataViewComponent } from './data-view/data-view.component';
 import { DataViewPipe } from './data-view/cut-length.pipe';
+
 @NgModule({
   declarations: [AppComponent, HeaderComponent, HomeComponent,DataViewComponent, DataViewPipe],
   imports: [
@@ -34,6 +36,7 @@ import { DataViewPipe } from './data-view/cut-length.pipe';
     MatTableModule,
     MatInputModule,
     MatPaginatorModule,
+    MatSortModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

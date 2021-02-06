@@ -5,6 +5,7 @@ mat-form-field, mat-paginator{
 table {
   background-color: var(--root-third-color);
   width: 100%;
+  table-layout: fixed;
 }
 
 tbody {
@@ -32,4 +33,12 @@ td, th {
   width: auto;
   max-width: 200px;
   color: var(--root-text-light);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
+
+.mat-table {
+  flex: 1 1 10%;
+}
+

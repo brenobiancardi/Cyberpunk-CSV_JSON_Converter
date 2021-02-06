@@ -1,44 +1,51 @@
-import { Component, Input, OnInit, ViewChild, AfterViewInit, EventEmitter, Output } from '@angular/core';
+import { DataViewService } from './data-view.service';
+import { Component, ViewChild, OnDestroy, OnChanges, OnInit, AfterViewInit } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 
-import {MatTableDataSource} from '@angular/material/table';
+import { MatTableDataSource } from '@angular/material/table';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-data-view',
   templateUrl: './data-view.component.html',
   styleUrls: ['./data-view.component.css']
 })
-export class DataViewComponent implements  OnInit, AfterViewInit{
+export class DataViewComponent implements AfterViewInit ,OnDestroy {
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  @Input() data: any[];
-  @Input() columns: string[];
+  subscriptionColumns: Subscription;
+  subscriptionData: Subscription;
 
   dataSource: any;
   displayColumns: string[];
-  
-  @Output() columnsChange: EventEmitter<string[]> = new EventEmitter<string[]>();
 
+  constructor(private dataViewService: DataViewService) {}
   
-  constructor() { }
-  
-  ngOnInit() {
-    this.dataSource = new MatTableDataSource(this.data);
-    this.data = [];
-    this.displayColumns = this.columns.slice(0,10);
+  ngAfterViewInit(){
+    this.subscriptionColumns = this.dataViewService.columnsChanged$.subscribe(
+      columns => {
+        this.displayColumns = columns.slice(0,10);
+      });
+
+    this.subscriptionData = this.dataViewService.dataChanged$.subscribe(
+      data => {
+        this.dataSource = new MatTableDataSource(data);
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
+      });
   }
 
-  ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+  ngOnDestroy() {
+    this.subscriptionData.unsubscribe();
+    this.subscriptionColumns.unsubscribe();
   }
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
-  
+
 }

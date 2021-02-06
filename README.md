@@ -8,16 +8,16 @@ Fui desafiado por [Camila Ribeiro](https://www.linkedin.com/in/camila-ferreira-r
 
 - [x] Crie uma aplicação Angular (Não esqueça que todo código precisa estar no GitHub)
 
-2.  Crie no mínimo 3 componentes que deverão estar interagindo na mesma página (Não esqueça das rotas)
+- [x]  Crie no mínimo 3 componentes que deverão estar interagindo na mesma página (Não esqueça das rotas)
 
-3.  Escolha no mínimo 4 componentes do Angular Material e incorpore eles em sua aplicação.
+- [x]  Escolha no mínimo 4 componentes do Angular Material e incorpore eles em sua aplicação.
 
     1. MatToolbarModule
     2. MatSnackBar
     3. MatIconModule
-    4. 
+    4. MatTable
 
-4.  Crie em uma das páginas uma interação através da Interpolação e/ou utilizando Property Biding.
+- [x]  Crie em uma das páginas uma interação através da Interpolação e/ou utilizando Property Biding.
 
 - [x] Crie uma explicação sobre o que foi feito, esta explicação será inserida na plataforma junto com o link para o código no GitHub.
 

@@ -1,47 +1,47 @@
 <div class="home-body">
-  <form [formGroup]="converterForm">
-    <div class="input-output">
-      <textarea
-        id="input-data"
-        name="input-data"
-        placeholder="A entrada dos seus dados é feita aqui."
-        required
-        wrap="off"
-        formControlName="input"
-      ></textarea>
-      <textarea
-        id="output-data"
-        name="output-data"
-        placeholder="A saida do processamento aparecerá aqui."
-        wrap="off"
-        formControlName="output"
-      ></textarea>
-    </div>
+    <form [formGroup]="converterForm">
+        <div class="input-output">
+            <textarea
+                id="input-data"
+                name="input-data"
+                placeholder="A entrada dos seus dados é feita aqui."
+                required
+                wrap="off"
+                formControlName="input"
+            ></textarea>
+            <textarea
+                id="output-data"
+                name="output-data"
+                placeholder="A saida do processamento aparecerá aqui."
+                wrap="off"
+                formControlName="output"
+            ></textarea>
+        </div>
 
-    <div class="button-bar">
-      <button
-        class="cybr-btn"
-        type="submit"
-        (click)="converterCSVJSON()"
-        [disabled]="input.invalid"
-      >
-        PARA JSON<span aria-hidden>_</span>
-        <span aria-hidden class="cybr-btn__glitch">JSON_</span>
-        <span aria-hidden class="cybr-btn__tag">R25</span>
-      </button>
-      <button
-        class="cybr-btn"
-        type="submit"
-        (click)="converterJSONCSV()"
-        [disabled]="input.invalid"
-      >
-        PARA CSV<span aria-hidden>_</span>
-        <span aria-hidden class="cybr-btn__glitch">CSV_</span>
-        <span aria-hidden class="cybr-btn__tag">R25</span>
-      </button>
-    </div>
-  </form> 
+        <div class="button-bar">
+            <button
+                class="cybr-btn"
+                type="submit"
+                (click)="converterCSVJSON()"
+                [disabled]="input.invalid"
+            >
+                PARA JSON<span aria-hidden>_</span>
+                <span aria-hidden class="cybr-btn__glitch">JSON_</span>
+                <span aria-hidden class="cybr-btn__tag">R25</span>
+            </button>
+            <button
+                class="cybr-btn"
+                type="submit"
+                (click)="converterJSONCSV()"
+                [disabled]="input.invalid"
+            >
+                PARA CSV<span aria-hidden>_</span>
+                <span aria-hidden class="cybr-btn__glitch">CSV_</span>
+                <span aria-hidden class="cybr-btn__tag">R25</span>
+            </button>
+        </div>
+    </form>
 </div>
-<div class="table" >
-  <app-data-view *ngIf="data" [data]="data" [columns]="columns"></app-data-view>
+<div class="table">
+    <app-data-view *ngIf="init" [hidden]="!show"></app-data-view>
 </div>
